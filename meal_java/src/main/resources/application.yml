@@ -1,0 +1,24 @@
+server:
+  port: 8080  #当前运行的端口
+spring:
+  datasource: #数据源配置
+    type: com.alibaba.druid.pool.DruidDataSource  #数据库连接池类型
+    password: root  #数据库密码
+    username: root  #数据库账号
+    driver-class-name: com.mysql.jdbc.Driver   #数据库驱动类 mysql8.0 com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/my_databatis   #mysql8.0 serverTimezone=GMT
+  thymeleaf:
+    cache: false
+  mvc:
+    view:
+      # 定位模板的目录
+      prefix: ../view/templates/
+      # 给返回的页面添加后缀名
+      suffix: .html
+
+
+      #mybatis配置
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true    #数据库表中的下划线自动转成驼峰
+  mapper-locations: classpath:mybatis/mapper/**/*.xml   #mapper文件路径
